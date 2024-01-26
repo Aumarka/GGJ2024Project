@@ -175,7 +175,7 @@ MonoBehaviour:
   EquipPoint: {fileID: 1865632521313566216}
   ChargeTime: 0
   MaxChargeTime: 1.5
-  YeetForce: 300
+  YeetForce: 400
 --- !u!1 &4379407254192592150
 GameObject:
   m_ObjectHideFlags: 0

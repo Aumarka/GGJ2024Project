@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     public Transform Camera;
     public float InteractRange;
 
-    public Transform EquippedItem;
+    public Item EquippedItem;
     public Transform EquipPoint;
 
     public float ChargeTime, MaxChargeTime;
@@ -20,23 +20,15 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !EquippedItem)
         {
-            if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit ray, InteractRange))
+            if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
             {
-                if (ray.collider.CompareTag("Interactable") || ray.collider.CompareTag("Baby"))
+                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby"))
                 {
                     IsPickingUpItem = true;
 
-                    EquippedItem = ray.collider.transform;
+                    EquippedItem = hit.collider.GetComponent<Item>();
 
-                    EquippedItem.position = EquipPoint.position;
-                    EquippedItem.parent = EquipPoint;
-
-                    Rigidbody rb = EquippedItem.GetComponent<Rigidbody>();
-                    rb.useGravity = false;
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
-
-                    EquippedItem.GetComponent<Collider>().enabled = false;
+                    EquippedItem.PickUp(EquipPoint, Camera);
 
                     return;
                 }
@@ -71,13 +63,7 @@ public class PlayerInteraction : MonoBehaviour
             if (ChargeTime <= 0 || !EquippedItem)
                 return;
 
-            Rigidbody rb = EquippedItem.GetComponent<Rigidbody>();
-            rb.AddForce(YeetForce * ChargeTime * Camera.transform.forward);
-            rb.useGravity = true;
-
-            EquippedItem.parent = null;
-
-            EquippedItem.GetComponent<Collider>().enabled = true;
+            EquippedItem.Yeet(YeetForce * ChargeTime * Camera.transform.forward);
 
             EquippedItem = null;
             ChargeTime = 0;
