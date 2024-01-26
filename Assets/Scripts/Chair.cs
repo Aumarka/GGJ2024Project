@@ -22,8 +22,12 @@ public class Chair : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Baby")) return;
 
+        other.transform.rotation = SnapPoint.rotation;
         other.transform.position = SnapPoint.position;
 
-
+        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
     }
 }
