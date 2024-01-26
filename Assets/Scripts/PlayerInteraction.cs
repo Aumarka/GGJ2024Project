@@ -7,7 +7,7 @@ public class PlayerInteraction : MonoBehaviour
     public Transform Camera;
     public float InteractRange;
 
-    public GameObject EquippedItem;
+    public Transform EquippedItem;
     public Transform EquipPoint;
 
     public float ChargeTime, MaxChargeTime;
@@ -22,14 +22,21 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit ray, InteractRange))
             {
-                if (ray.collider.CompareTag("Interactable"))
+                if (ray.collider.CompareTag("Interactable") || ray.collider.CompareTag("Baby"))
                 {
                     IsPickingUpItem = true;
 
-                    EquippedItem = ray.collider.gameObject;
-                    EquippedItem.transform.position = EquipPoint.position;
-                    EquippedItem.transform.parent = EquipPoint;
-                    EquippedItem.GetComponent<Rigidbody>().useGravity = false;
+                    EquippedItem = ray.collider.transform;
+
+                    EquippedItem.position = EquipPoint.position;
+                    EquippedItem.parent = EquipPoint;
+
+                    Rigidbody rb = EquippedItem.GetComponent<Rigidbody>();
+                    rb.useGravity = false;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+
+                    EquippedItem.GetComponent<Collider>().enabled = false;
 
                     return;
                 }
@@ -68,7 +75,9 @@ public class PlayerInteraction : MonoBehaviour
             rb.AddForce(YeetForce * ChargeTime * Camera.transform.forward);
             rb.useGravity = true;
 
-            EquippedItem.transform.parent = null;
+            EquippedItem.parent = null;
+
+            EquippedItem.GetComponent<Collider>().enabled = true;
 
             EquippedItem = null;
             ChargeTime = 0;
