@@ -23,5 +23,7 @@ public class Chair : MonoBehaviour
         if (!other.gameObject.CompareTag("Baby")) return;
 
         other.transform.position = SnapPoint.position;
+
+
     }
 }
