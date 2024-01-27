@@ -7,11 +7,14 @@ using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     public GameUIManager gameUIManager;
+    public EndGameUIManager endGameUIManager;
     public GameObject endGameCanvas;
 
     public bool gameRunning;
     
     public int gameTimeInSeconds = 600;
+    public int babyHappiness = 60;
+    public int maxBabyHappiness;
 
     [Header("Game Tasks Variables")]
     [SerializeField] private TaskList babyTasks;
@@ -32,7 +35,10 @@ public class GameDirector : MonoBehaviour
 
         completedTasks = new List<int>();
 
+        maxBabyHappiness = babyHappiness;
+
         gameRunning = true;
+        Time.timeScale = 1;
     }
 
     public void Update()
@@ -62,7 +68,6 @@ public class GameDirector : MonoBehaviour
             }
          
         }
-
 
         // Checks if all tasks are completed before ending the game
         if(completedTasks.Count == numberOfTotalTasks)
@@ -164,6 +169,15 @@ public class GameDirector : MonoBehaviour
         {
             EndGame();
         }
+
+        if(babyHappiness > 0)
+        {
+            babyHappiness--;
+        }
+        else
+        {
+            EndGame();
+        }
     }
 
     void EndGame()
@@ -175,7 +189,29 @@ public class GameDirector : MonoBehaviour
         endGameCanvas.SetActive(true);
         gameRunning = false;
 
-
+        // Determine the end game message to give the player
+        if(completedTasks.Count == numberOfTotalTasks)
+        {
+            if(babyHappiness > 0)
+            {
+                endGameUIManager.SetEndGameText(0);
+            }
+            else
+            {
+                endGameUIManager.SetEndGameText(2);
+            }
+        }
+        else
+        {
+            if(babyHappiness > 0)
+            {
+                endGameUIManager.SetEndGameText(1);
+            }
+            else
+            {
+                endGameUIManager.SetEndGameText(3);
+            }
+        }
     }
 
     public void ReloadGame()

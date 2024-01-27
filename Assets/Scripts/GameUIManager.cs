@@ -36,6 +36,12 @@ public class GameUIManager : MonoBehaviour
         }
 
         UpdateTaskListState();
+        UpdateHappinessBar();
+    }
+
+    private void UpdateHappinessBar()
+    {
+        happinessBar.fillAmount = Mathf.Lerp(happinessBar.fillAmount, (float)gameDirector.babyHappiness / (float)gameDirector.maxBabyHappiness, Time.deltaTime * 5.0f);
     }
 
     private void UpdateTaskListState()

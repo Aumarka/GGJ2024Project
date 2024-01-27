@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
             {
-                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby"))
+                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby") || hit.collider.CompareTag("Paper"))
                 {
                     IsPickingUpItem = true;
 
