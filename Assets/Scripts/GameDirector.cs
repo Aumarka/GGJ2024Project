@@ -15,6 +15,7 @@ public class GameDirector : MonoBehaviour
     public int gameTimeInSeconds = 600;
     public int babyHappiness = 60;
     public int maxBabyHappiness;
+    public int BabyHappinessMultiplier = 1;
 
     [Header("Game Tasks Variables")]
     [SerializeField] private TaskList babyTasks;
@@ -172,7 +173,7 @@ public class GameDirector : MonoBehaviour
 
         if(babyHappiness > 0)
         {
-            babyHappiness -= 1;
+            babyHappiness -= 1 * BabyHappinessMultiplier;
         }
         else
         {
@@ -217,5 +218,17 @@ public class GameDirector : MonoBehaviour
     public void ReloadGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ChangeHappinessModifier(bool isIncreasing)
+    {
+        if (isIncreasing)
+        {
+            BabyHappinessMultiplier *= 2;
+            return;
+        }
+
+        BabyHappinessMultiplier /= 2;
+        if (BabyHappinessMultiplier < 1) BabyHappinessMultiplier = 1;
     }
 }
