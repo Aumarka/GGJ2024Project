@@ -54,7 +54,7 @@ public class Baby : Item
     {
         if (!IsSitting) return;
 
-        if (other.transform.CompareTag("Baby Food") && IsHungry)
+        if (other.transform.CompareTag("Baby Food") && IsHungry && CurrentChair.CompareTag("High Chair"))
         {
             SitDown(CurrentChair, CurrentChair.BabySnapPoint);
             other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
@@ -71,7 +71,7 @@ public class Baby : Item
             return;
         }
 
-        if (other.transform.CompareTag("Diaper") && NeedsChanging)
+        if (other.transform.CompareTag("Diaper") && NeedsChanging && CurrentChair.CompareTag("Change Table"))
         {
             SitDown(CurrentChair, CurrentChair.BabySnapPoint);
             other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
