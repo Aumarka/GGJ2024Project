@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 496428718}
   - component: {fileID: 496428717}
   - component: {fileID: 496428721}
+  - component: {fileID: 496428722}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Interactable
@@ -861,6 +862,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &496428722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496428716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30eeb3b08199d9542a3ba3ffa9022c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 496428721}
+  Collider: {fileID: 496428717}
+  Pivot: {fileID: 496428720}
 --- !u!1 &616778214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1146501258
 Transform:
   m_ObjectHideFlags: 0
@@ -1286,7 +1302,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146501257}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1339,7 +1355,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1318550913}
   m_Layer: 0
-  m_Name: Baby
+  m_Name: Baby Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,12 +1370,11 @@ Transform:
   m_GameObject: {fileID: 1318550912}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.657, y: 0.16799997, z: -1.972}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1721323820}
-  m_Father: {fileID: 0}
+  m_LocalPosition: {x: 0, y: -0.74, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1721323820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389784854
 GameObject:
@@ -1651,6 +1666,7 @@ GameObject:
   - component: {fileID: 1721323818}
   - component: {fileID: 1721323817}
   - component: {fileID: 1721323816}
+  - component: {fileID: 1721323821}
   m_Layer: 0
   m_Name: Baby
   m_TagString: Baby
@@ -1767,14 +1783,30 @@ Transform:
   m_GameObject: {fileID: 1721323815}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.48, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 1.657, y: 0.39, z: -1.972}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 1318550913}
   - {fileID: 278634138}
   - {fileID: 445093515}
-  m_Father: {fileID: 1318550913}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1721323821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721323815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30eeb3b08199d9542a3ba3ffa9022c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rb: {fileID: 1721323816}
+  Collider: {fileID: 1721323817}
+  Pivot: {fileID: 1318550913}
 --- !u!1 &1726147086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,7 +4170,7 @@ SceneRoots:
   - {fileID: 2019814229882584629}
   - {fileID: 2025080686}
   - {fileID: 496428720}
-  - {fileID: 1318550913}
+  - {fileID: 1721323820}
   - {fileID: 1114795049}
   - {fileID: 616778217}
   - {fileID: 302866760}
