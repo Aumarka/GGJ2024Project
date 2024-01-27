@@ -12,6 +12,7 @@ TagManager:
   - Toy
   - Laundry
   - RubbishBag
+  - Baby Food
   layers:
   - Default
   - TransparentFX
