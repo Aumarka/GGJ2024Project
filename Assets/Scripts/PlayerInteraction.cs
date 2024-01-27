@@ -31,6 +31,10 @@ public class PlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameDirector)
+        {
+            gameDirector.gameUIManager.UpdateThrowBar(ChargeTime / MaxChargeTime);
+        }
 
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit preHit, InteractRange))
         {
