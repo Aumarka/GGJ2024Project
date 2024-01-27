@@ -6,10 +6,12 @@ public class Baby : Item
 {
     public bool IsHungry = false, NeedsChanging = false;
 
+    public bool IsAirborne = false;
+    public float SpikeSpeedThreshold = 5;
+
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
 
     GameDirector _gameDirector;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,13 @@ public class Baby : Item
     void Update()
     {
         
+    }
+
+    public override void Yeet(Vector3 force)
+    {
+        base.Yeet(force);
+
+        IsAirborne = true;
     }
 
     public void GetHungry()
@@ -50,14 +59,14 @@ public class Baby : Item
         Debug.Log("Damn you got a stinky diaper");
     }
 
-    private void OnCollisionEnter(Collision other)
+    void SeatedCollisionCheck(Transform other)
     {
         if (!IsSitting) return;
 
-        if (other.transform.CompareTag("Baby Food") && IsHungry && CurrentChair.CompareTag("High Chair"))
+        if (other.CompareTag("Baby Food") && IsHungry && CurrentChair.CompareTag("High Chair"))
         {
             SitDown(CurrentChair, CurrentChair.BabySnapPoint);
-            other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
+            other.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
 
             _gameDirector.ChangeHappinessModifier(false);
 
@@ -73,10 +82,10 @@ public class Baby : Item
             return;
         }
 
-        if (other.transform.CompareTag("Diaper") && NeedsChanging && CurrentChair.CompareTag("Change Table"))
+        if (other.CompareTag("Diaper") && NeedsChanging && CurrentChair.CompareTag("Change Table"))
         {
             SitDown(CurrentChair, CurrentChair.BabySnapPoint);
-            other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
+            other.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
 
             _gameDirector.ChangeHappinessModifier(false);
 
@@ -91,5 +100,20 @@ public class Baby : Item
 
             return;
         }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (IsAirborne)
+        {
+            IsAirborne = false;
+
+            float speed = Rb.velocity.magnitude;
+            Debug.Log(speed);
+            if (speed >= SpikeSpeedThreshold)
+                _gameDirector.CompleteTask(2);
+        }
+
+        SeatedCollisionCheck(other.transform);
     }
 }

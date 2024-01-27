@@ -40,7 +40,7 @@ public class Item : MonoBehaviour
         IsSitting = false;
     }
 
-    public void Yeet(Vector3 force)
+    public virtual void Yeet(Vector3 force)
     {
         Rb.AddForce(force);
         Rb.useGravity = true;
