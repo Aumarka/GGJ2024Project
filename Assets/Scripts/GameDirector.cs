@@ -7,7 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameDirector : MonoBehaviour
 {
     public GameUIManager gameUIManager;
+    public GameObject endGameCanvas;
 
+    public bool gameRunning;
     
     public int gameTimeInSeconds = 600;
 
@@ -23,24 +25,42 @@ public class GameDirector : MonoBehaviour
 
     private void Start()
     {
+        endGameCanvas.SetActive(false);
+
         StartCoroutine(Countdown());
         GenerateTasks();
 
         completedTasks = new List<int>();
+
+        gameRunning = true;
     }
 
     public void Update()
     {
         gameUIManager.SetTimerText(GetTime());
 
+
+        // Game Testing Reload Function
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            ReloadGame();
         }
 
+        // For Game State Testing Purposes
         if (Input.GetKeyDown(KeyCode.O))
         {
-            CompleteTask(13);
+            while (true)
+            {
+                int selectedTaskIndex = Random.Range(0, gameTasks.Count);
+                int selectedTaskID = gameTasks[selectedTaskIndex].taskID;
+
+                if (!completedTasks.Contains(selectedTaskIndex))
+                {
+                    CompleteTask(selectedTaskID);
+                    break;
+                }
+            }
+         
         }
 
 
@@ -148,6 +168,18 @@ public class GameDirector : MonoBehaviour
 
     void EndGame()
     {
+        Debug.Log("End Game");
 
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+        endGameCanvas.SetActive(true);
+        gameRunning = false;
+
+
+    }
+
+    public void ReloadGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

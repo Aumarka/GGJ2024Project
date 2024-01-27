@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    GameDirector gameDirector;
+
     [Header("Player Movement Settings")]
     public float speed = 10.0f;
     public float speedBoostMultiplier = 1.5f;
@@ -30,6 +32,11 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        if (gameDirector == null)
+        {
+            gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        }
+
         // Set character controller settings
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
@@ -84,7 +91,7 @@ public class PlayerController : MonoBehaviour
         characterController.Move(moveDirection * Time.deltaTime);
 
         // Player and Camera rotation
-        if (canMove)
+        if (canMove && gameDirector.gameRunning)
         {
             rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
             rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
