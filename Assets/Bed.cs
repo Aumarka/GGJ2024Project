@@ -9,8 +9,10 @@ public class Bed : MonoBehaviour
     private int pillowCount;
     private int blanketCount;
 
-    public GameObject madeBed;
-    public GameObject unmadeBed;
+    public GameObject madeBlanket;
+    public GameObject unmadeBlanket;
+    public GameObject pillow1;
+    public GameObject pillow2;
 
     private void Start()
     {
@@ -18,8 +20,12 @@ public class Bed : MonoBehaviour
         pillowCount = 0;
         blanketCount = 0;
 
-        madeBed.SetActive(false);
-        unmadeBed.SetActive(true);
+        madeBlanket.SetActive(false);
+        pillow1.SetActive(false);
+        pillow2.SetActive(false);
+
+
+        unmadeBlanket.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +33,17 @@ public class Bed : MonoBehaviour
         if (other.gameObject.CompareTag("Pillow"))
         {
             pillowCount++;
+
+            if(pillowCount >= 1)
+            {
+                pillow1.SetActive(true);
+            }
+
+            if(pillowCount >= 2)
+            {
+                pillow2.SetActive(true);
+            }
+
             CheckCompletionStatus();
             Destroy(other.gameObject);
 
@@ -35,6 +52,13 @@ public class Bed : MonoBehaviour
         if (other.gameObject.CompareTag("Blanket"))
         {
             blanketCount++;
+
+            if(blanketCount >= 1)
+            {
+                madeBlanket.SetActive(true);
+                unmadeBlanket.SetActive(false);
+            }
+
             CheckCompletionStatus();
             Destroy(other.gameObject);
         }
@@ -44,9 +68,6 @@ public class Bed : MonoBehaviour
     {
         if(pillowCount >= 2 && blanketCount >= 1)
         {
-            madeBed.SetActive(true);
-            unmadeBed.SetActive(false);
-
             gameDirector.CompleteTask(17);
         }
     }
