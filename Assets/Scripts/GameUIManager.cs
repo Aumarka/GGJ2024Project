@@ -34,4 +34,14 @@ public class GameUIManager : MonoBehaviour
         tasksContainerPanel.SetActive(taskMenuState);
     }
 
+    public void SetTask(int taskPanelIndex, Task selectedTask)
+    {
+        taskContainers[taskPanelIndex].SetTaskContainerText(selectedTask.taskDescription);
+    }
+
+    public void SetTimerText(string timeText)
+    {
+        timerText.text = timeText;
+    }
+
 }
