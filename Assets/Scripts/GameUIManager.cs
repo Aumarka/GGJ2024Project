@@ -17,6 +17,9 @@ public class GameUIManager : MonoBehaviour
     public TMP_Text itemDisplayText;
     public Image throwBar;
 
+    public GameObject hungerIcon;
+    public GameObject diaperIcon;
+
     private bool taskMenuState;
 
     private Color32 nomalTaskColour = new Color32(255, 255, 255, 50);
@@ -29,6 +32,9 @@ public class GameUIManager : MonoBehaviour
             gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
         }
         taskMenuState = true;
+
+        ToggleHungerIcon(false);
+        ToggleDiaperIcon(false);
     }
 
     private void Update()
@@ -91,6 +97,16 @@ public class GameUIManager : MonoBehaviour
     public void SetItemText(string itemText)
     {
         itemDisplayText.text = itemText;
+    }
+
+    public void ToggleHungerIcon(bool ToggleState)
+    {
+        hungerIcon.SetActive(ToggleState);
+    }
+
+    public void ToggleDiaperIcon(bool ToggleState)
+    {
+        diaperIcon.SetActive(ToggleState);
     }
 
 }

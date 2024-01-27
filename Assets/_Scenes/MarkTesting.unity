@@ -5544,12 +5544,12 @@ GameObject:
   - component: {fileID: 806658945}
   - component: {fileID: 806658944}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Diaper Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &806658943
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5564,10 +5564,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 758127414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -50, y: -175}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &806658944
 MonoBehaviour:
@@ -7784,12 +7784,12 @@ GameObject:
   - component: {fileID: 1069141733}
   - component: {fileID: 1069141732}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Hunger Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1069141731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7804,10 +7804,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 758127414}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 50, y: -175}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069141732
 MonoBehaviour:
@@ -18700,6 +18700,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7093160801675458366, guid: 0ccbb2e347d59034187aeb0dc5410fc3,
+        type: 3}
+      propertyPath: diaperIcon
+      value: 
+      objectReference: {fileID: 806658944}
+    - target: {fileID: 7093160801675458366, guid: 0ccbb2e347d59034187aeb0dc5410fc3,
+        type: 3}
+      propertyPath: hungerIcon
+      value: 
+      objectReference: {fileID: 1069141732}
     - target: {fileID: 7253405176212346979, guid: 0ccbb2e347d59034187aeb0dc5410fc3,
         type: 3}
       propertyPath: m_AnchorMax.y
