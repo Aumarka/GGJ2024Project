@@ -18,6 +18,8 @@ public class PlayerInteraction : MonoBehaviour
 
     bool IsPickingUpItem = false;
 
+    public string[] interactableTags;
+
 
     private void Start()
     {
@@ -57,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
             {
-                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby") || hit.collider.CompareTag("Paper") || hit.collider.CompareTag("Toy"))
+                if (TagIsInteractable(hit.collider.gameObject.tag))
                 {
                     IsPickingUpItem = true;
 
@@ -103,5 +105,18 @@ public class PlayerInteraction : MonoBehaviour
             EquippedItem = null;
             ChargeTime = 0;
         }
+    }
+
+    public bool TagIsInteractable(string tag)
+    {
+        for(int i = 0; i < interactableTags.Length; i++)
+        {
+            if(tag == interactableTags[i])
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
