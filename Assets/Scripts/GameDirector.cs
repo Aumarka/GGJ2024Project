@@ -137,6 +137,16 @@ public class GameDirector : MonoBehaviour
             {
                 if (!completedTasks.Contains(i))
                 {
+                    if(gameTasks[i].taskType == Task.taskTypes.Baby)
+                    {
+                        babyHappiness += gameTasks[i].happinessValue; // Change to task happiness value;
+
+                        if (babyHappiness > 60.0f)
+                        {
+                            babyHappiness = 60;
+                        }
+                    }
+
                     completedTasks.Add(i);
                     break;
                 }

@@ -14,5 +14,7 @@ public class Task : ScriptableObject
     }
 
     public taskTypes taskType;
+
+    public int happinessValue;
     
 }
