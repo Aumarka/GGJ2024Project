@@ -9,6 +9,7 @@ TagManager:
   - InGameUI
   - GameDirector
   - Paper
+  - Toy
   layers:
   - Default
   - TransparentFX

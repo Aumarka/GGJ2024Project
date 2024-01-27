@@ -172,7 +172,7 @@ public class GameDirector : MonoBehaviour
 
         if(babyHappiness > 0)
         {
-            babyHappiness--;
+            babyHappiness -= 1;
         }
         else
         {

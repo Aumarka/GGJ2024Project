@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Diagnostics;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameUIManager : MonoBehaviour
     public GameObject tasksContainerPanel;
     public TaskContainer[] taskContainers;
     public TMP_Text timerText;
+    public TMP_Text itemDisplayText;
+    public Image throwBar;
 
     private bool taskMenuState;
 
@@ -44,6 +47,10 @@ public class GameUIManager : MonoBehaviour
         happinessBar.fillAmount = Mathf.Lerp(happinessBar.fillAmount, (float)gameDirector.babyHappiness / (float)gameDirector.maxBabyHappiness, Time.deltaTime * 5.0f);
     }
 
+    public void UpdateThrowBar(float fillAmount)
+    {
+        throwBar.fillAmount = Mathf.Lerp(throwBar.fillAmount, fillAmount, Time.deltaTime * 5.0f);
+    }
     private void UpdateTaskListState()
     {
         for(int i = 0; i < taskContainers.Length; i++)
@@ -79,6 +86,11 @@ public class GameUIManager : MonoBehaviour
     public void SetTimerText(string timeText)
     {
         timerText.text = timeText;
+    }
+
+    public void SetItemText(string itemText)
+    {
+        itemDisplayText.text = itemText;
     }
 
 }
