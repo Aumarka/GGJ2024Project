@@ -86,9 +86,13 @@ public class PlayerInteraction : MonoBehaviour
                     ChargeTime = MaxChargeTime;
             } 
         }
-
         else
             Yeet();
+
+        if(Input.GetMouseButtonDown(1) && EquippedItem)
+        {
+            EquippedItem.Interact();
+        }
     }
 
     public void Yeet()
