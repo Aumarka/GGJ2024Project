@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Task #014 - Take Out The Trash
   m_EditorClassIdentifier: 
   taskID: 14
-  taskDescription: Take Out The Trash
+  taskDescription: 'Put Trash Bag Next To Front Door
+
+'
   taskType: 1
