@@ -13,6 +13,7 @@ public class GameUIManager : MonoBehaviour
     public GameObject tasksContainerPanel;
     public TaskContainer[] taskContainers;
     public TMP_Text timerText;
+    public TMP_Text itemDisplayText;
 
     private bool taskMenuState;
 
@@ -79,6 +80,11 @@ public class GameUIManager : MonoBehaviour
     public void SetTimerText(string timeText)
     {
         timerText.text = timeText;
+    }
+
+    public void SetItemText(string itemText)
+    {
+        itemDisplayText.text = itemText;
     }
 
 }

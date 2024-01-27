@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public GameDirector gameDirector;
+
+
     public Transform Camera;
     public float InteractRange;
 
@@ -15,14 +18,46 @@ public class PlayerInteraction : MonoBehaviour
 
     bool IsPickingUpItem = false;
 
+
+    private void Start()
+    {
+        if(gameDirector == null)
+        {
+            gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+
+        if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit preHit, InteractRange))
+        {
+            if (preHit.collider.gameObject.TryGetComponent<Item>(out Item item))
+            {
+                if (gameDirector)
+                {
+                    gameDirector.gameUIManager.SetItemText(item.itemName);
+                }
+                else
+                {
+                    Debug.Log(item.itemName);
+                }
+                
+            }
+            else
+            {
+                if (gameDirector)
+                {
+                    gameDirector.gameUIManager.SetItemText("");
+                }
+            }
+        }
+
         if (Input.GetMouseButtonDown(0) && !EquippedItem)
         {
             if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
             {
-                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby") || hit.collider.CompareTag("Paper"))
+                if (hit.collider.CompareTag("Interactable") || hit.collider.CompareTag("Baby") || hit.collider.CompareTag("Paper") || hit.collider.CompareTag("Toy"))
                 {
                     IsPickingUpItem = true;
 

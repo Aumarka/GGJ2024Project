@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
+    public string itemName = "undefined";
     public Rigidbody Rb;
     public Collider Collider;
     public Transform Pivot;
