@@ -13,6 +13,8 @@ TagManager:
   - Laundry
   - RubbishBag
   - Baby Food
+  - Pillow
+  - Blanket
   layers:
   - Default
   - TransparentFX
