@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4b8d48c1efcc964a85596ea47f4067c, type: 3}
+  m_Name: Housekeeping Tasks
+  m_EditorClassIdentifier: 
+  tasks:
+  - {fileID: 11400000, guid: a0601f7a79de65f4ca2214fbd46d7469, type: 2}
+  - {fileID: 11400000, guid: c836617ab4bdd184db039715b98a657f, type: 2}
+  - {fileID: 11400000, guid: f217a034ee30d604a9e391938b9169e2, type: 2}
+  - {fileID: 11400000, guid: 41d009a81b56b084cb51bd414d93e70c, type: 2}
+  - {fileID: 11400000, guid: 5d3a95475a75f1c498397f1c33bca13d, type: 2}
+  - {fileID: 11400000, guid: a401e4bf157af77449f2cee4836546fd, type: 2}
+  - {fileID: 11400000, guid: 8f64fef4313531a49b65fc6e743e798f, type: 2}
+  - {fileID: 11400000, guid: 35234c87e18609342aae232b20c3ade7, type: 2}

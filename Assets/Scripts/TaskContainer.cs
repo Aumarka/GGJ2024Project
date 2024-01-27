@@ -9,7 +9,7 @@ public class TaskContainer : MonoBehaviour
     public TMP_Text taskText;
     public Image taskContainerPanel;
 
-    public void SetContainerPanelColour(Color panelColour)
+    public void SetContainerPanelColour(Color32 panelColour)
     {
         taskContainerPanel.color = panelColour;
     }
