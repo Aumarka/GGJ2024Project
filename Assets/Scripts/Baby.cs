@@ -34,7 +34,7 @@ public class Baby : Item
 
         _gameDirector.ChangeHappinessModifier(true);
 
-        // TODO -- Feedback
+        _gameDirector.gameUIManager.ToggleHungerIcon(true);
 
         Debug.Log("Time to feed da baby");
     }
@@ -45,7 +45,7 @@ public class Baby : Item
 
         _gameDirector.ChangeHappinessModifier(true);
 
-        // TODO -- Feedback
+        _gameDirector.gameUIManager.ToggleDiaperIcon(true);
 
         Debug.Log("Damn you got a stinky diaper");
     }
@@ -68,6 +68,8 @@ public class Baby : Item
 
             _gameDirector.CompleteTask(1);
 
+            _gameDirector.gameUIManager.ToggleHungerIcon(false);
+
             return;
         }
 
@@ -84,6 +86,8 @@ public class Baby : Item
             Invoke(nameof(GetNeedsChanging), rand);
 
             _gameDirector.CompleteTask(3);
+
+            _gameDirector.gameUIManager.ToggleDiaperIcon(false);
 
             return;
         }
