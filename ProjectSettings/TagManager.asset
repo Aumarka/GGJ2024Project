@@ -17,6 +17,7 @@ TagManager:
   - Blanket
   - Dish
   - Broom
+  - MacaroniPile
   layers:
   - Default
   - TransparentFX
