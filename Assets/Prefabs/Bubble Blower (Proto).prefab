@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1169355254148463340
+--- !u!1 &3609801171228859052
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3722218399362451391}
-  - component: {fileID: 9044946829185128574}
-  - component: {fileID: 109424062363299562}
-  - component: {fileID: 7822364315122728739}
-  - component: {fileID: 3602788691927159419}
-  - component: {fileID: 1152085670858431723}
+  - component: {fileID: 7140745688488197341}
+  - component: {fileID: 2876605160721746060}
+  - component: {fileID: 3486021787379552221}
+  - component: {fileID: 8474865769231095764}
+  - component: {fileID: 6361279905741446060}
+  - component: {fileID: 8732457288063049445}
   m_Layer: 0
-  m_Name: Watering can
+  m_Name: Bubble Blower (Proto)
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3722218399362451391
+--- !u!4 &7140745688488197341
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
+  m_GameObject: {fileID: 3609801171228859052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 1, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.02, y: 4.85, z: -6.825}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &9044946829185128574
+--- !u!33 &2876605160721746060
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
-  m_Mesh: {fileID: 8303392621282857985, guid: dfa7ddcb121c9f043a2d46c602b01c9f, type: 3}
---- !u!23 &109424062363299562
+  m_GameObject: {fileID: 3609801171228859052}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3486021787379552221
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
+  m_GameObject: {fileID: 3609801171228859052}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e77f360f0e211ba458cf605b43be8856, type: 2}
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7822364315122728739
+--- !u!65 &8474865769231095764
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
+  m_GameObject: {fileID: 3609801171228859052}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -105,17 +105,39 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.45243126, y: 0.46, z: 0.5}
-  m_Center: {x: 0.0001887232, y: 0.07, z: -0.41}
---- !u!54 &3602788691927159419
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6361279905741446060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3609801171228859052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331bc678c1003b4499c55262d831d8c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Bubble Blower
+  Rb: {fileID: 8732457288063049445}
+  Collider: {fileID: 8474865769231095764}
+  CurrentChair: {fileID: 0}
+  IsSitting: 0
+  Camera: {fileID: 0}
+  InteractRange: 5
+  interactionSound: {fileID: 0}
+  interactionEffect: {fileID: 0}
+  linkedTaskID: 8
+--- !u!54 &8732457288063049445
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
+  m_GameObject: {fileID: 3609801171228859052}
   serializedVersion: 4
-  m_Mass: 1.07
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -134,24 +156,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1152085670858431723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169355254148463340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d219af1ac1de7c54daf4d92a9f4388b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Wateringn Can
-  Rb: {fileID: 3602788691927159419}
-  Collider: {fileID: 7822364315122728739}
-  CurrentChair: {fileID: 0}
-  IsSitting: 0
-  Camera: {fileID: 0}
-  InteractRange: 3
-  plantsWatered: 0
-  wateredPlants: []
