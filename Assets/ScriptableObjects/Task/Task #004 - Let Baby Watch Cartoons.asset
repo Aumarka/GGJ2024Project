@@ -15,3 +15,4 @@ MonoBehaviour:
   taskID: 4
   taskDescription: Let Baby Watch Cartoons
   taskType: 0
+  happinessValue: 25
