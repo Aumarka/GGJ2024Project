@@ -5,8 +5,12 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public string itemName = "undefined";
+
     public Rigidbody Rb;
     public Collider Collider;
+
+    public Chair CurrentChair;
+    public bool IsSitting = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +36,8 @@ public class Item : MonoBehaviour
         Rb.angularVelocity = Vector3.zero;
         
         Collider.enabled = false;
+
+        IsSitting = false;
     }
 
     public void Yeet(Vector3 force)
@@ -48,5 +54,17 @@ public class Item : MonoBehaviour
     {
         // Add code in child classes for interactions
         Debug.Log("Interaction Triggered");
+    }
+
+    public void SitDown(Chair chair, Transform snapPoint)
+    {
+        CurrentChair = chair;
+        IsSitting = true;
+
+        transform.SetPositionAndRotation(snapPoint.position, snapPoint.rotation);
+
+        Rb.useGravity = false;
+        Rb.velocity = Vector3.zero;
+        Rb.angularVelocity = Vector3.zero;
     }
 }
