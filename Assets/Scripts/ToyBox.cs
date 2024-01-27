@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class ToyBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameDirector gameDirector;
+
+    private int toyCount;
+
+    private void Start()
     {
-        
+        gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        toyCount = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Toy"))
+        {
+            toyCount++;
+
+            if (toyCount >= 6)
+            {
+                gameDirector.CompleteTask(15);
+            }
+        }
     }
 }
