@@ -5,11 +5,8 @@ using UnityEngine;
 public class Baby : Item
 {
     public bool IsHungry = false, NeedsChanging = false;
-    public bool IsSitting = false;
 
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
-
-    public Chair CurrentChair;
 
 
     // Start is called before the first frame update
@@ -39,28 +36,15 @@ public class Baby : Item
         // TODO -- Increase cry multiplier
     }
 
-    public void SitDown(Chair chair, Transform snapPoint)
-    {
-        CurrentChair = chair;
-        IsSitting = true;
-
-        transform.SetPositionAndRotation(snapPoint.position, snapPoint.rotation);
-
-        Rb.useGravity = false;
-        Rb.velocity = Vector3.zero;
-        Rb.angularVelocity = Vector3.zero;
-    }
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (!IsSitting) return;
 
-        if (other.CompareTag("Baby Food") && IsHungry)
+        if (other.transform.CompareTag("Baby Food") && IsHungry)
         {
-            other.transform.SetPositionAndRotation(CurrentChair.ItemSnapPoint.position, CurrentChair.ItemSnapPoint.rotation);
+            SitDown(CurrentChair, CurrentChair.BabySnapPoint);
+            other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
 
-            // TODO
-            // Snap collided object to table
             // Decrease cry multiplier
 
             IsHungry = false;
