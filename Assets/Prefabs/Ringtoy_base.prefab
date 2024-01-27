@@ -343,9 +343,12 @@ GameObject:
   - component: {fileID: 2429061761258234347}
   - component: {fileID: 134805954162500349}
   - component: {fileID: 2079161043497882877}
+  - component: {fileID: 3020612665819169929}
+  - component: {fileID: 1492975301425321579}
+  - component: {fileID: 1153677724644435842}
   m_Layer: 0
   m_Name: Ringtoy_base
-  m_TagString: Untagged
+  m_TagString: Toy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,9 +361,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7892198833417164270}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: 1, y: 1, z: 1}
-  m_LocalScale: {x: 17.309849, y: 17.309845, z: 17.309845}
+  m_LocalScale: {x: 11.47488, y: 11.474878, z: 11.474878}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2151601556172462861}
@@ -369,7 +372,7 @@ Transform:
   - {fileID: 7348036969791726570}
   - {fileID: 8161843607634159601}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
 --- !u!33 &134805954162500349
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -420,6 +423,71 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!54 &3020612665819169929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892198833417164270}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1492975301425321579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892198833417164270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30eeb3b08199d9542a3ba3ffa9022c8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Ring Toss
+  Rb: {fileID: 3020612665819169929}
+  Collider: {fileID: 1153677724644435842}
+  Pivot: {fileID: 2429061761258234347}
+--- !u!64 &1153677724644435842
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892198833417164270}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2474907126842694252, guid: a13356dafd5ef614ba897fae33851552, type: 3}
 --- !u!1 &8234732575323619418
 GameObject:
   m_ObjectHideFlags: 0
