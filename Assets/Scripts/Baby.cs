@@ -67,6 +67,25 @@ public class Baby : Item
             Invoke(nameof(GetHungry), rand);
 
             _gameDirector.CompleteTask(1);
+
+            return;
+        }
+
+        if (other.transform.CompareTag("Diaper") && NeedsChanging)
+        {
+            SitDown(CurrentChair, CurrentChair.BabySnapPoint);
+            other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
+
+            _gameDirector.ChangeHappinessModifier(false);
+
+            NeedsChanging = false;
+
+            float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
+            Invoke(nameof(GetNeedsChanging), rand);
+
+            _gameDirector.CompleteTask(3);
+
+            return;
         }
     }
 }

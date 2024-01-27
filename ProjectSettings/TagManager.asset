@@ -18,6 +18,7 @@ TagManager:
   - Dish
   - Broom
   - MacaroniPile
+  - Diaper
   layers:
   - Default
   - TransparentFX
