@@ -8,10 +8,14 @@ public class Baby : Item
 
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
 
+    GameDirector _gameDirector;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        _gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+
         float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
         Invoke(nameof(GetHungry), rand);
         rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
@@ -27,13 +31,23 @@ public class Baby : Item
     public void GetHungry()
     {
         IsHungry = true;
-        // TODO -- Increase cry multiplier
+
+        _gameDirector.ChangeHappinessModifier(true);
+
+        // TODO -- Feedback
+
+        Debug.Log("Time to feed da baby");
     }
 
     public void GetNeedsChanging()
     {
         NeedsChanging = true;
-        // TODO -- Increase cry multiplier
+
+        _gameDirector.ChangeHappinessModifier(true);
+
+        // TODO -- Feedback
+
+        Debug.Log("Damn you got a stinky diaper");
     }
 
     private void OnCollisionEnter(Collision other)
@@ -45,12 +59,14 @@ public class Baby : Item
             SitDown(CurrentChair, CurrentChair.BabySnapPoint);
             other.transform.GetComponent<Item>().SitDown(CurrentChair, CurrentChair.ItemSnapPoint);
 
-            // Decrease cry multiplier
+            _gameDirector.ChangeHappinessModifier(false);
 
             IsHungry = false;
 
             float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
             Invoke(nameof(GetHungry), rand);
+
+            _gameDirector.CompleteTask(1);
         }
     }
 }
