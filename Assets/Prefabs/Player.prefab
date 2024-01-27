@@ -177,12 +177,7 @@ MonoBehaviour:
   ChargeTime: 0
   MaxChargeTime: 1.5
   YeetForce: 400
-  interactableTags:
-  - Interactable
-  - Baby
-  - Paper
-  - Toy
-  - Laundry
+  interactableTags: {fileID: 11400000, guid: 79fc28341a5e9aa47b639dfee31bfcac, type: 2}
 --- !u!1 &4379407254192592150
 GameObject:
   m_ObjectHideFlags: 0

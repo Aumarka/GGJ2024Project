@@ -18,7 +18,7 @@ public class PlayerInteraction : MonoBehaviour
 
     bool IsPickingUpItem = false;
 
-    public string[] interactableTags;
+    public TagList interactableTags;
 
 
     private void Start()
@@ -117,9 +117,9 @@ public class PlayerInteraction : MonoBehaviour
 
     public bool TagIsInteractable(string tag)
     {
-        for(int i = 0; i < interactableTags.Length; i++)
+        for(int i = 0; i < interactableTags.tagList.Length; i++)
         {
-            if(tag == interactableTags[i])
+            if(tag == interactableTags.tagList[i])
             {
                 return true;
             }

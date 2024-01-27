@@ -11,6 +11,7 @@ TagManager:
   - Paper
   - Toy
   - Laundry
+  - RubbishBag
   layers:
   - Default
   - TransparentFX
