@@ -15,6 +15,7 @@ TagManager:
   - Baby Food
   - Pillow
   - Blanket
+  - Dish
   layers:
   - Default
   - TransparentFX
