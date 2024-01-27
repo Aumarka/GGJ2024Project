@@ -183,6 +183,7 @@ MonoBehaviour:
   - Paper
   - Toy
   - Laundry
+  - Baby Food
 --- !u!1 &4379407254192592150
 GameObject:
   m_ObjectHideFlags: 0

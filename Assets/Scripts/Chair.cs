@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Chair : MonoBehaviour
 {
-    public Transform SnapPoint;
+    public Transform BabySnapPoint, ItemSnapPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,9 @@ public class Chair : MonoBehaviour
     {
         if (!other.gameObject.CompareTag("Baby")) return;
 
-        other.transform.rotation = SnapPoint.rotation;
-        other.transform.position = SnapPoint.position;
+        other.transform.GetComponent<Baby>().CurrentChair = this;
+
+        other.transform.SetPositionAndRotation(BabySnapPoint.position, BabySnapPoint.rotation);
 
         Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
