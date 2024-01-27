@@ -10,6 +10,7 @@ TagManager:
   - GameDirector
   - Paper
   - Toy
+  - Laundry
   layers:
   - Default
   - TransparentFX

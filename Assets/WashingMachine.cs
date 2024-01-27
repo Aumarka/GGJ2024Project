@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class WashingMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameDirector gameDirector;
+
+    private int laundryCount;
+
+    private void Start()
     {
-        
+        gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        laundryCount = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Laundry"))
+        {
+            laundryCount++;
+            Destroy(other.gameObject);
+
+            if (laundryCount >= 4)
+            {
+                gameDirector.CompleteTask(19);
+            }
+        }
     }
 }
