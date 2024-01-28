@@ -11,6 +11,9 @@ public class WateringCan : Item
 
     public int plantsWatered = 0;
 
+    public AudioClip interactionSound;
+    public GameObject interactionEffect;
+
     public List<GameObject> wateredPlants = new List<GameObject>();
 
     private void Start()
@@ -30,6 +33,16 @@ public class WateringCan : Item
             if (hit.collider.gameObject.CompareTag("Plant") && !wateredPlants.Contains(hit.collider.gameObject))
             {
                 Debug.Log("Water");
+
+                if (interactionSound != null)
+                {
+                    SoundManager.instance.PlaySound2(interactionSound);
+                }
+
+                if (interactionEffect != null)
+                {
+                    Instantiate(interactionEffect, transform.position, transform.rotation);
+                }
 
                 plantsWatered++;
                 wateredPlants.Add(hit.collider.gameObject);

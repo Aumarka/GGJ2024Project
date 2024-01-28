@@ -154,4 +154,6 @@ MonoBehaviour:
   Camera: {fileID: 0}
   InteractRange: 3
   plantsWatered: 0
+  interactionSound: {fileID: 8300000, guid: de6483cba638854499963a7adabac202, type: 3}
+  interactionEffect: {fileID: 0}
   wateredPlants: []

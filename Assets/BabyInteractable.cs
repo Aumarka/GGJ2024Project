@@ -34,7 +34,7 @@ public class BabyInteractable : Item
 
                 if (interactionSound != null)
                 {
-                    // Include logic to play sound
+                    SoundManager.instance.PlaySound2(interactionSound);
                 }
 
                 if(interactionEffect != null)
