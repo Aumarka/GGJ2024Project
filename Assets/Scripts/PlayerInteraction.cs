@@ -30,6 +30,10 @@ public class PlayerInteraction : MonoBehaviour
         if (gameDirector == null)
             gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
         _baby = GameObject.FindGameObjectWithTag("Baby").GetComponent<Baby>();
+
+        // Pick up baby
+        EquippedItem = _baby;
+        EquippedItem.PickUp(EquipPoint, Camera);
     }
 
     // Update is called once per frame
