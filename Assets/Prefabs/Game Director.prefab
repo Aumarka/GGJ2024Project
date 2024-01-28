@@ -51,8 +51,15 @@ MonoBehaviour:
   gameTimeInSeconds: 420
   babyHappiness: 60
   maxBabyHappiness: 0
+  BabyHappinessMultiplier: 1
+  babyLaughs:
+  - {fileID: 8300000, guid: 0beaa3650d9762b448e32e1c09bed0a7, type: 3}
+  - {fileID: 8300000, guid: 340262656e97476438a61603a817beef, type: 3}
+  - {fileID: 8300000, guid: 53328174b4559824fbcca7c3143e4c63, type: 3}
+  babyCry: {fileID: 8300000, guid: 76cfe601de757504499bf602aaf9a34c, type: 3}
+  completeSound: {fileID: 8300000, guid: dbc72e901c040bd49a708a48eeee708f, type: 3}
   babyTasks: {fileID: 11400000, guid: 2692e8147fcae364da1a7fa2d07a850f, type: 2}
   householdTasks: {fileID: 11400000, guid: 901118b3c782f7f43a6b2f1a9141b26c, type: 2}
   minNumberOfTasks: 6
-  maxNumberOfTasks: 8
+  maxNumberOfTasks: 10
   gameTasks: []

@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
-    GameObject helpMenu;
-    GameObject controlsMenu;
+    public GameObject helpMenu;
+    public GameObject controlsMenu;
 
     private void Start()
     {
