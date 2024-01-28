@@ -60,6 +60,6 @@ MonoBehaviour:
   completeSound: {fileID: 8300000, guid: dbc72e901c040bd49a708a48eeee708f, type: 3}
   babyTasks: {fileID: 11400000, guid: 2692e8147fcae364da1a7fa2d07a850f, type: 2}
   householdTasks: {fileID: 11400000, guid: 901118b3c782f7f43a6b2f1a9141b26c, type: 2}
-  minNumberOfTasks: 6
+  minNumberOfTasks: 7
   maxNumberOfTasks: 10
   gameTasks: []
