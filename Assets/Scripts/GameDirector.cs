@@ -87,9 +87,12 @@ public class GameDirector : MonoBehaviour
         numberOfTotalTasks = Random.Range(minNumberOfTasks, maxNumberOfTasks + 1);
         numberOfHouseholdTasks = Random.Range(2, Mathf.FloorToInt(maxNumberOfTasks / 2));
 
-        int taskListIndex = 0;
+        gameTasks.Add(babyTasks.tasks[0]);
+        gameTasks.Add(babyTasks.tasks[2]);
 
-        for(int i = 0; i < numberOfTotalTasks - numberOfHouseholdTasks; i++)
+        int taskListIndex = 2;
+
+        for(int i = 2; i < numberOfTotalTasks - numberOfHouseholdTasks; i++)
         {
             while (true)
             {
