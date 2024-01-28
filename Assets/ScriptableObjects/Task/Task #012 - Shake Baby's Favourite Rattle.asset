@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 12
   taskDescription: Shake Baby's Favourite Rattle
   taskType: 0
-  happinessValue: 35
+  happinessValue: 45

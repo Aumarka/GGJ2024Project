@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 6
   taskDescription: Let Baby Play
   taskType: 0
-  happinessValue: 40
+  happinessValue: 50

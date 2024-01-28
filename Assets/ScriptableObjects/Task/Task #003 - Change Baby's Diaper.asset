@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 3
   taskDescription: Change Baby's Diaper
   taskType: 0
-  happinessValue: 40
+  happinessValue: 50
