@@ -25,16 +25,16 @@ public class WateringCan : Item
 
     public override void Interact()
     {
-        Debug.Log("Water");
-
         if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
         {
             if (hit.collider.gameObject.CompareTag("Plant") && !wateredPlants.Contains(hit.collider.gameObject))
             {
+                Debug.Log("Water");
+
                 plantsWatered++;
                 wateredPlants.Add(hit.collider.gameObject);
 
-                if (plantsWatered >= 6)
+                if (plantsWatered >= 5)
                 {
                     gameDirector.CompleteTask(18);
                 }
