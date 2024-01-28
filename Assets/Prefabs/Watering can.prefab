@@ -155,5 +155,6 @@ MonoBehaviour:
   InteractRange: 3
   plantsWatered: 0
   interactionSound: {fileID: 8300000, guid: de6483cba638854499963a7adabac202, type: 3}
-  interactionEffect: {fileID: 0}
+  interactionEffect: {fileID: 1586931844464988514, guid: ce734c829efa68e4697a65c138fbf2f0,
+    type: 3}
   wateredPlants: []
