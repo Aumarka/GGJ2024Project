@@ -26,9 +26,9 @@ public class GameDirector : MonoBehaviour
     [SerializeField] private TaskList householdTasks;
     public int minNumberOfTasks;
     public int maxNumberOfTasks;
-    private int numberOfTotalTasks;
+    public int numberOfTotalTasks;
     private int numberOfHouseholdTasks;
-    private List<int> completedTasks = new List<int>();
+    public List<int> completedTasks = new List<int>();
     public List<Task> gameTasks = new List<Task>();
 
     private void Start()
@@ -78,8 +78,8 @@ public class GameDirector : MonoBehaviour
     // Generates a list of tasks for the player to complete
     public void GenerateTasks()
     {
-        numberOfTotalTasks = Random.Range(minNumberOfTasks, maxNumberOfTasks + 1);
-        numberOfHouseholdTasks = Random.Range(2, Mathf.FloorToInt(numberOfTotalTasks / 2)) + 1;
+        numberOfTotalTasks = maxNumberOfTasks + 1;
+        numberOfHouseholdTasks = Mathf.FloorToInt(numberOfTotalTasks / 2);
 
         gameTasks.Add(babyTasks.tasks[0]);
         gameTasks.Add(babyTasks.tasks[2]);
@@ -143,9 +143,9 @@ public class GameDirector : MonoBehaviour
                         babyHappiness += gameTasks[i].happinessValue; // Change to task happiness value;
                         SoundManager.instance.PlaySound(babyLaughs[Random.Range(0, babyLaughs.Length)]);
 
-                        if (babyHappiness > 60.0f)
+                        if (babyHappiness > maxBabyHappiness)
                         {
-                            babyHappiness = 60;
+                            babyHappiness = maxBabyHappiness;
                         }
                     }
                     else
@@ -208,11 +208,13 @@ public class GameDirector : MonoBehaviour
         gameRunning = false;
 
         // Determine the end game message to give the player
-        if(completedTasks.Count == numberOfTotalTasks)
+        if(completedTasks.Count == numberOfTotalTasks - 1)
         {
             if(babyHappiness > 0)
             {
                 endGameUIManager.SetEndGameText(0);
+                SoundManager.instance.PlaySound2(completeSound);
+                SoundManager.instance.PlaySound(babyLaughs[0]);
             }
             else
             {

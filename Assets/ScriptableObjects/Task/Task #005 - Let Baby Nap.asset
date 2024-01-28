@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 5
   taskDescription: Let Baby Nap
   taskType: 0
-  happinessValue: 50
+  happinessValue: 35

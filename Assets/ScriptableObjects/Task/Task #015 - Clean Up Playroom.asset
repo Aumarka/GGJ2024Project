@@ -15,3 +15,4 @@ MonoBehaviour:
   taskID: 15
   taskDescription: Clean Up Playroom
   taskType: 1
+  happinessValue: 0

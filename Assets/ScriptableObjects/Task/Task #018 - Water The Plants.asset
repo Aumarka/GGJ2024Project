@@ -15,3 +15,4 @@ MonoBehaviour:
   taskID: 18
   taskDescription: Water The Plants
   taskType: 1
+  happinessValue: 0

@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 1
   taskDescription: Feed Baby
   taskType: 0
-  happinessValue: 45
+  happinessValue: 35

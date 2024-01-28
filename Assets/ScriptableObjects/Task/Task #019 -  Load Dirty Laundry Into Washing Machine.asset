@@ -15,3 +15,4 @@ MonoBehaviour:
   taskID: 19
   taskDescription: Load Dirty Laundry Into Washing Machine
   taskType: 1
+  happinessValue: 0
