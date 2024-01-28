@@ -73,12 +73,6 @@ public class GameDirector : MonoBehaviour
             }
          
         }
-
-        // Checks if all tasks are completed before ending the game
-        if(completedTasks.Count == numberOfTotalTasks)
-        {
-            EndGame();
-        }
     }
 
     // Generates a list of tasks for the player to complete
