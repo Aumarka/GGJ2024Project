@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 2
   taskDescription: Throw Baby In Air
   taskType: 0
-  happinessValue: 15
+  happinessValue: 25

@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 10
   taskDescription: Drop Stuff Off Counter In Front Of Baby
   taskType: 0
-  happinessValue: 15
+  happinessValue: 25

@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 8
   taskDescription: Blow Bubbles With Baby
   taskType: 0
-  happinessValue: 10
+  happinessValue: 20

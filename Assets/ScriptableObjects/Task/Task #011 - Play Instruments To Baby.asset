@@ -15,4 +15,4 @@ MonoBehaviour:
   taskID: 11
   taskDescription: Play Instruments To Baby
   taskType: 0
-  happinessValue: 15
+  happinessValue: 25
