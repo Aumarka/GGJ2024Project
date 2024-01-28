@@ -7,6 +7,7 @@ public class Baby : Item
     public bool IsHungry = false, NeedsChanging = false;
 
     public bool IsAirborne = false;
+    public float AirborneTimer = 0, AirborneTimerSuccessLimit = 1;
     public float SpikeSpeedThreshold = 5;
 
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
@@ -28,6 +29,8 @@ public class Baby : Item
     void Update()
     {
         FixedSitSpot();
+
+        UpdateAirborneTimer();
     }
 
     void FixedSitSpot()
@@ -38,11 +41,23 @@ public class Baby : Item
         SitDown(CurrentChair, CurrentChair.BabySnapPoint);
     }
 
+    void UpdateAirborneTimer()
+    {
+        if (!IsAirborne) return;
+
+        AirborneTimer += Time.deltaTime;
+
+        if (AirborneTimer < AirborneTimerSuccessLimit) return;
+
+        _gameDirector.CompleteTask(2);
+    }
+
     public override void Yeet(Vector3 force, Transform launchPoint)
     {
         base.Yeet(force, launchPoint);
 
         IsAirborne = true;
+        AirborneTimer = 0;
     }
 
     public void GetHungry()
@@ -116,10 +131,13 @@ public class Baby : Item
         {
             IsAirborne = false;
 
+            // Airborne baby impact speed version
+            /*
             float speed = Rb.velocity.magnitude;
             Debug.Log(speed);
             if (speed >= SpikeSpeedThreshold)
                 _gameDirector.CompleteTask(2);
+            */
         }
 
         SeatedCollisionCheck(other.transform);
