@@ -165,6 +165,8 @@ MonoBehaviour:
   IsHungry: 0
   NeedsChanging: 0
   IsAirborne: 0
+  AirborneTimer: 0
+  AirborneTimerSuccessLimit: 1
   SpikeSpeedThreshold: 5
-  MinRandomEventTimer: 10
-  MaxRandomEventTimer: 20
+  MinRandomEventTimer: 60
+  MaxRandomEventTimer: 120

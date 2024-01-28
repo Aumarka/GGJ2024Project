@@ -8,7 +8,7 @@ public class Baby : Item
 
     public bool IsAirborne = false;
     public float AirborneTimer = 0, AirborneTimerSuccessLimit = 1;
-    public float SpikeSpeedThreshold = 5;
+    //public float SpikeSpeedThreshold = 5;
 
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
 
