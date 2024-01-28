@@ -106,7 +106,8 @@ MonoBehaviour:
   Camera: {fileID: 0}
   InteractRange: 5
   interactionSound: {fileID: 8300000, guid: 5e7734ebeff5ce74dab0dfdf2f743dd5, type: 3}
-  interactionEffect: {fileID: 0}
+  interactionEffect: {fileID: 2901951869065119400, guid: ab89cfddfa79aa544ac812121bdc820e,
+    type: 3}
   linkedTaskID: 8
 --- !u!54 &8732457288063049445
 Rigidbody:
