@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Task #010 - Drop Stuff Off Counter
   m_EditorClassIdentifier: 
   taskID: 10
-  taskDescription: Drop Stuff Off Counter
+  taskDescription: Drop Stuff Off Counter In Front Of Baby
   taskType: 0
   happinessValue: 15

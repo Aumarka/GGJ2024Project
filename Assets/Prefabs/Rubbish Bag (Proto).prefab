@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3772050766520400545}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -2365503597955699450, guid: 3888b368dc5fd2240b9d2922754636e2, type: 3}
 --- !u!23 &5460653664318296550
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f7771f7532fa9dd418954906495e310e, type: 2}
+  - {fileID: 2100000, guid: 5720a1d5efdbb9f4fa2b501fde15f7db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,7 +105,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.8, y: 0.8, z: 0.7}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8614521474210397461
 Rigidbody:
@@ -149,3 +149,5 @@ MonoBehaviour:
   itemName: Trash Bag
   Rb: {fileID: 8614521474210397461}
   Collider: {fileID: 1669612070340042017}
+  CurrentChair: {fileID: 0}
+  IsSitting: 0
