@@ -978,8 +978,8 @@ MonoBehaviour:
   timerText: {fileID: 7680342248216420845}
   itemDisplayText: {fileID: 1623625284894946279}
   throwBar: {fileID: 5282411166916668240}
-  hungerIcon: {fileID: 447610820253086255}
-  diaperIcon: {fileID: 6072632708835688774}
+  hungerIcon: {fileID: 6072632708835688774}
+  diaperIcon: {fileID: 447610820253086255}
 --- !u!1 &1797585586960801670
 GameObject:
   m_ObjectHideFlags: 0
