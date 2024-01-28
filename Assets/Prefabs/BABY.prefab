@@ -167,6 +167,10 @@ MonoBehaviour:
   IsAirborne: 0
   AirborneTimer: 0
   AirborneTimerSuccessLimit: 1
-  SpikeSpeedThreshold: 5
+  SpikeSpeedThreshold: 7.5
+  Material: {fileID: 2100000, guid: 6d0d86494bd893a47a4fcb4aeb778a10, type: 2}
+  AngryTimer: 0
+  AngryResetLimit: 6
+  IsAngry: 0
   MinRandomEventTimer: 60
   MaxRandomEventTimer: 120

@@ -8,7 +8,11 @@ public class Baby : Item
 
     public bool IsAirborne = false;
     public float AirborneTimer = 0, AirborneTimerSuccessLimit = 1;
-    //public float SpikeSpeedThreshold = 5;
+
+    public float SpikeSpeedThreshold = 5;
+    public Material Material;
+    public float AngryTimer = 0, AngryResetLimit = 6;
+    public bool IsAngry = false;
 
     public float MinRandomEventTimer = 60, MaxRandomEventTimer = 90;
 
@@ -23,6 +27,9 @@ public class Baby : Item
         Invoke(nameof(GetHungry), rand);
         rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
         Invoke(nameof(GetNeedsChanging), rand);
+
+        Material.DisableKeyword("_EMISSION");
+        Material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
     }
 
     // Update is called once per frame
@@ -31,6 +38,8 @@ public class Baby : Item
         FixedSitSpot();
 
         UpdateAirborneTimer();
+
+        AngryBaby();
     }
 
     void FixedSitSpot()
@@ -50,6 +59,20 @@ public class Baby : Item
         if (AirborneTimer < AirborneTimerSuccessLimit) return;
 
         _gameDirector.CompleteTask(2);
+    }
+
+    void AngryBaby()
+    {
+        if (!IsAngry) return;
+
+        AngryTimer += Time.deltaTime;
+
+        if (AngryTimer < AngryResetLimit) return;
+
+        IsAngry = false;
+
+        Material.DisableKeyword("_EMISSION");
+        Material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
     }
 
     public override void Yeet(Vector3 force, Transform launchPoint)
@@ -130,14 +153,17 @@ public class Baby : Item
         if (IsAirborne)
         {
             IsAirborne = false;
-
-            // Airborne baby impact speed version
-            /*
+            
             float speed = Rb.velocity.magnitude;
             Debug.Log(speed);
             if (speed >= SpikeSpeedThreshold)
-                _gameDirector.CompleteTask(2);
-            */
+            {
+                Material.EnableKeyword("_EMISSION");
+                Material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None;
+
+                IsAngry = true;
+                AngryTimer = 0;
+            }
         }
 
         SeatedCollisionCheck(other.transform);
