@@ -95,8 +95,8 @@ public class Baby : Item
 
             IsHungry = false;
 
-            float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
-            Invoke(nameof(GetHungry), rand);
+            //float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
+            //Invoke(nameof(GetHungry), rand);
 
             _gameDirector.CompleteTask(1);
 
@@ -114,8 +114,8 @@ public class Baby : Item
 
             NeedsChanging = false;
 
-            float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
-            Invoke(nameof(GetNeedsChanging), rand);
+            //float rand = Random.Range(MinRandomEventTimer, MaxRandomEventTimer);
+            //Invoke(nameof(GetNeedsChanging), rand);
 
             _gameDirector.CompleteTask(3);
 

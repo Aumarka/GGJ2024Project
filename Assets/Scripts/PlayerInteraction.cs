@@ -19,14 +19,17 @@ public class PlayerInteraction : MonoBehaviour
 
     public TagList interactableTags;
 
+    public bool IsPeakabooing = false;
+    public Transform LeftHand, RightHand;
+    public float HandMoveDuration = 1, HandHoldDuration = 1;
+    public float HandMoveSpeed = 0.1f;
 
     private void Start()
     {
-        if(gameDirector == null)
-        {
+        if (gameDirector == null)
             gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
-        }
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -58,7 +61,7 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && !EquippedItem)
+        if (Input.GetMouseButtonDown(0) && !EquippedItem && !IsPeakabooing)
         {
             if (Physics.Raycast(Camera.position, Camera.forward, out RaycastHit hit, InteractRange))
             {
@@ -88,10 +91,54 @@ public class PlayerInteraction : MonoBehaviour
         else
             Yeet();
 
-        if(Input.GetMouseButtonDown(1) && EquippedItem)
+        if (Input.GetMouseButtonDown(1))
         {
-            EquippedItem.Interact();
+            if (EquippedItem)
+            {
+                EquippedItem.Interact();
+                return;
+            }
+
+            if (!IsPeakabooing)
+                StartCoroutine(Peakaboo());
         }
+    }
+
+    IEnumerator Peakaboo()
+    {
+        IsPeakabooing = true;
+
+        LeftHand.gameObject.SetActive(true);
+        RightHand.gameObject.SetActive(true);
+
+        float timer = 0;
+        while (timer < HandMoveDuration)
+        {
+            timer += Time.deltaTime;
+
+            LeftHand.localPosition = LeftHand.localPosition + new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+            RightHand.localPosition = RightHand.localPosition + new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(HandHoldDuration);
+
+        timer = 0;
+        while (timer < HandMoveDuration)
+        {
+            timer += Time.deltaTime;
+
+            LeftHand.localPosition = LeftHand.localPosition - new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+            RightHand.localPosition = RightHand.localPosition - new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+
+            yield return null;
+        }
+
+        IsPeakabooing = false;
+
+        LeftHand.gameObject.SetActive(false);
+        RightHand.gameObject.SetActive(false);
     }
 
     public void Yeet()
