@@ -32895,6 +32895,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372662653800820844, guid: 8d641deb8ace49542892a9a38dbc1bce,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372662653800820844, guid: 8d641deb8ace49542892a9a38dbc1bce,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 297165511}
@@ -32903,6 +32908,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 297165509}
+    - target: {fileID: 2372662653800820844, guid: 8d641deb8ace49542892a9a38dbc1bce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 2568249406154573199, guid: 8d641deb8ace49542892a9a38dbc1bce,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -35193,16 +35203,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
         type: 3}
-      propertyPath: babyCry
-      value: 
-      objectReference: {fileID: 8300000, guid: 76cfe601de757504499bf602aaf9a34c, type: 3}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: completeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: dbc72e901c040bd49a708a48eeee708f, type: 3}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
       propertyPath: endGameCanvas
       value: 
       objectReference: {fileID: 947161933}
@@ -35216,31 +35216,6 @@ PrefabInstance:
       propertyPath: endGameUIManager
       value: 
       objectReference: {fileID: 947161934}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: maxNumberOfTasks
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: babyLaughs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: babyLaughs.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 0beaa3650d9762b448e32e1c09bed0a7, type: 3}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: babyLaughs.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 340262656e97476438a61603a817beef, type: 3}
-    - target: {fileID: 7069416848396581998, guid: 66595a08fd8f5894ea804b6e9cd382a6,
-        type: 3}
-      propertyPath: babyLaughs.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 53328174b4559824fbcca7c3143e4c63, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

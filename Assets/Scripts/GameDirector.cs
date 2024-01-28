@@ -256,4 +256,9 @@ public class GameDirector : MonoBehaviour
         BabyHappinessMultiplier /= 2;
         if (BabyHappinessMultiplier < 1) BabyHappinessMultiplier = 1;
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
