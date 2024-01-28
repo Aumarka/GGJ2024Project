@@ -6,12 +6,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     public GameDirector gameDirector;
 
-
     public Transform Camera;
     public float InteractRange;
 
     public Item EquippedItem;
-    public Transform EquipPoint;
+    public Transform EquipPoint, LaunchPoint;
 
     public float ChargeTime, MaxChargeTime;
     public float YeetForce;
@@ -108,7 +107,7 @@ public class PlayerInteraction : MonoBehaviour
             if (ChargeTime <= 0 || !EquippedItem)
                 return;
 
-            EquippedItem.Yeet(YeetForce * ChargeTime * Camera.transform.forward);
+            EquippedItem.Yeet(YeetForce * ChargeTime * Camera.transform.forward, LaunchPoint);
 
             EquippedItem = null;
             ChargeTime = 0;
