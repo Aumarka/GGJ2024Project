@@ -49,7 +49,7 @@ MonoBehaviour:
   endGameCanvas: {fileID: 0}
   gameRunning: 0
   gameTimeInSeconds: 420
-  babyHappiness: 60
+  babyHappiness: 90
   maxBabyHappiness: 0
   BabyHappinessMultiplier: 1
   babyLaughs:
