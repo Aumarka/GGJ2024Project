@@ -183,7 +183,7 @@ MonoBehaviour:
   Hands: {fileID: 2574982291510419154}
   HandMoveDuration: 1
   HandHoldDuration: 1
-  HandMoveSpeed: 1
+  HandMoveSpeed: 0.9
 --- !u!1 &3804293157413233835
 GameObject:
   m_ObjectHideFlags: 0
