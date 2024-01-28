@@ -79,7 +79,7 @@ public class GameDirector : MonoBehaviour
     public void GenerateTasks()
     {
         numberOfTotalTasks = Random.Range(minNumberOfTasks, maxNumberOfTasks + 1);
-        numberOfHouseholdTasks = Random.Range(2, Mathf.FloorToInt(maxNumberOfTasks / 2));
+        numberOfHouseholdTasks = Random.Range(2, Mathf.FloorToInt(numberOfTotalTasks / 2)) + 1;
 
         gameTasks.Add(babyTasks.tasks[0]);
         gameTasks.Add(babyTasks.tasks[2]);
