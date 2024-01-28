@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 331bc678c1003b4499c55262d831d8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Tamborine
+  itemName: Trumpet
   Rb: {fileID: 1917636542287650083}
   Collider: {fileID: 5224375201678101212}
   CurrentChair: {fileID: 0}

@@ -30,9 +30,9 @@ public class Baby : Item
         
     }
 
-    public override void Yeet(Vector3 force)
+    public override void Yeet(Vector3 force, Transform launchPoint)
     {
-        base.Yeet(force);
+        base.Yeet(force, launchPoint);
 
         IsAirborne = true;
     }
