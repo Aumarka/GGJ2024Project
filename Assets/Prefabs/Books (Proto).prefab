@@ -126,7 +126,7 @@ MonoBehaviour:
   IsSitting: 0
   Camera: {fileID: 0}
   InteractRange: 5
-  interactionSound: {fileID: 0}
+  interactionSound: {fileID: 8300000, guid: b48e6c5a8497188478b1c4108bbe8582, type: 3}
   interactionEffect: {fileID: 0}
   linkedTaskID: 9
 --- !u!54 &8103852485122191334
