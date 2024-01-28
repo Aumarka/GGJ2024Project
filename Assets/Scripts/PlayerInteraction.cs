@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public GameDirector gameDirector;
+    Baby _baby;
 
     public Transform Camera;
     public float InteractRange;
@@ -28,6 +29,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (gameDirector == null)
             gameDirector = GameObject.FindGameObjectWithTag("GameDirector").GetComponent<GameDirector>();
+        _baby = GameObject.FindGameObjectWithTag("Baby").GetComponent<Baby>();
     }
 
     // Update is called once per frame
@@ -139,6 +141,12 @@ public class PlayerInteraction : MonoBehaviour
 
         LeftHand.gameObject.SetActive(false);
         RightHand.gameObject.SetActive(false);
+
+        if (_baby.CurrentChair)
+        {
+            if (_baby.CurrentChair.CompareTag("High Chair"))
+                gameDirector.CompleteTask(7);
+        }
     }
 
     public void Yeet()
