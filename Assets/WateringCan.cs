@@ -34,7 +34,7 @@ public class WateringCan : Item
                 plantsWatered++;
                 wateredPlants.Add(hit.collider.gameObject);
 
-                if (plantsWatered >= 4)
+                if (plantsWatered >= 6)
                 {
                     gameDirector.CompleteTask(18);
                 }
