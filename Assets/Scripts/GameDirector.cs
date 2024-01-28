@@ -17,6 +17,10 @@ public class GameDirector : MonoBehaviour
     public int maxBabyHappiness;
     public int BabyHappinessMultiplier = 1;
 
+    public AudioClip[] babyLaughs;
+    public AudioClip babyCry;
+    public AudioClip completeSound;
+
     [Header("Game Tasks Variables")]
     [SerializeField] private TaskList babyTasks;
     [SerializeField] private TaskList householdTasks;
@@ -140,14 +144,20 @@ public class GameDirector : MonoBehaviour
                     if(gameTasks[i].taskType == Task.taskTypes.Baby)
                     {
                         babyHappiness += gameTasks[i].happinessValue; // Change to task happiness value;
+                        SoundManager.instance.PlaySound(babyLaughs[Random.Range(0, babyLaughs.Length)]);
 
                         if (babyHappiness > 60.0f)
                         {
                             babyHappiness = 60;
                         }
                     }
+                    else
+                    {
+                        SoundManager.instance.PlaySound(completeSound);
+                    }
 
                     completedTasks.Add(i);
+                    
                     break;
                 }
             }
@@ -210,6 +220,7 @@ public class GameDirector : MonoBehaviour
             else
             {
                 endGameUIManager.SetEndGameText(2);
+                SoundManager.instance.PlaySound(babyCry);
             }
         }
         else
@@ -221,6 +232,7 @@ public class GameDirector : MonoBehaviour
             else
             {
                 endGameUIManager.SetEndGameText(3);
+                SoundManager.instance.PlaySound(babyCry);
             }
         }
     }

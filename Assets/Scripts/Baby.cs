@@ -27,12 +27,20 @@ public class Baby : Item
     // Update is called once per frame
     void Update()
     {
-        
+        FixedSitSpot();
     }
 
-    public override void Yeet(Vector3 force)
+    void FixedSitSpot()
     {
-        base.Yeet(force);
+        if (!IsSitting) return;
+        if (!CurrentChair) return;
+
+        SitDown(CurrentChair, CurrentChair.BabySnapPoint);
+    }
+
+    public override void Yeet(Vector3 force, Transform launchPoint)
+    {
+        base.Yeet(force, launchPoint);
 
         IsAirborne = true;
     }

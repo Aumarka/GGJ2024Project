@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private AudioSource backgroundMusicSource;
     [SerializeField] private AudioSource soundEffectsSource;
+    [SerializeField] private AudioSource soundEffects2Source;
 
     private void Awake()
     {
@@ -25,6 +26,11 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(AudioClip clip)
     {
         soundEffectsSource.PlayOneShot(clip);
+    }
+
+    public void PlaySound2(AudioClip clip)
+    {
+        soundEffects2Source.PlayOneShot(clip);
     }
 
     public void PlaySoundTrack(AudioClip clip)
