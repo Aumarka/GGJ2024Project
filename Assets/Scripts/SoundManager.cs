@@ -6,6 +6,8 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
 
+    public AudioClip backingTrack;
+
     [SerializeField] private AudioSource backgroundMusicSource;
     [SerializeField] private AudioSource soundEffectsSource;
     [SerializeField] private AudioSource soundEffects2Source;
@@ -21,6 +23,11 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        PlaySoundTrack(backingTrack);
     }
 
     public void PlaySound(AudioClip clip)

@@ -24,7 +24,7 @@ public class EndGameUIManager : MonoBehaviour
         switch(endingID)
         {
             case 0:
-                endGameText.text = "You successfully took care of the baby with no issues!";
+                endGameText.text = "You took care of the baby with no issues! Whatever happens, it's their problem now!";
                 break;
             case 1:
                 endGameText.text = "You stopped the baby from crying but you didn't do all the tasks! Better luck next time";
