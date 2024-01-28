@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     public TagList interactableTags;
 
     public bool IsPeakabooing = false;
-    public Transform LeftHand, RightHand;
+    public Transform Hands;
     public float HandMoveDuration = 1, HandHoldDuration = 1;
     public float HandMoveSpeed = 0.1f;
 
@@ -110,16 +110,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         IsPeakabooing = true;
 
-        LeftHand.gameObject.SetActive(true);
-        RightHand.gameObject.SetActive(true);
+        Hands.gameObject.SetActive(true);
 
         float timer = 0;
         while (timer < HandMoveDuration)
         {
             timer += Time.deltaTime;
 
-            LeftHand.localPosition = LeftHand.localPosition + new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
-            RightHand.localPosition = RightHand.localPosition + new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+            Hands.localPosition = Hands.localPosition + new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
 
             yield return null;
         }
@@ -131,16 +129,14 @@ public class PlayerInteraction : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            LeftHand.localPosition = LeftHand.localPosition - new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
-            RightHand.localPosition = RightHand.localPosition - new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
+            Hands.localPosition = Hands.localPosition - new Vector3(0, HandMoveSpeed, 0) * Time.deltaTime;
 
             yield return null;
         }
 
         IsPeakabooing = false;
 
-        LeftHand.gameObject.SetActive(false);
-        RightHand.gameObject.SetActive(false);
+        Hands.gameObject.SetActive(false);
 
         if (_baby.CurrentChair)
         {
