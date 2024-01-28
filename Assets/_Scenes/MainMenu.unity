@@ -360,11 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed72e0f88b007348ac9df5230584a0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   helpMenu: {fileID: 0}
   controlsMenu: {fileID: 0}
-=======
->>>>>>> Stashed changes
 --- !u!1 &548909900
 GameObject:
   m_ObjectHideFlags: 0
